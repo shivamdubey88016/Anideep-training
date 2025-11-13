@@ -1,0 +1,70 @@
+Explain the purpose of this keyword in Java. Give two practical scenarios in a
+real-world program where it is required.
+ANSWER
+
+
+
+1.The this keyword in Java is a reference variable that refers to the current object of the class. It is
+used to differentiate between instance variables and local variables when they have the same
+name and to access members (variables, methods, constructors) of the current object.
+Purposes of this keyword:
+1. To resolve variable shadowing when local (method or constructor) parameters have the same
+name as instance variables.
+2. To call another constructor in the same class using this().
+3. To pass the current object as an argument in a method or constructor.
+4. To return the current object from a method.
+Scenario 1: Resolving variable shadowing
+class Employee {
+String name;
+int age;
+Employee(String name, int age) {
+this.name = name; 
+this.age = age;
+}
+}
+Scenario 2: Calling another constructor using this()
+class Student {
+String name;
+int marks;
+Student() {
+this("Unknown", 0); // calls the parameterized constructor
+}
+Student(String name, int marks) {
+this.name = name;
+this.marks = marks;
+}
+}
+
+
+QUESTION 2
+1. Access Modifiers (Banking Example)
+default → accessible within same package. Example: double balance;
+private → accessible within same class. Example: private String pin;
+protected → accessible in same package and subclasses. Example: protected double interestRate;
+public → accessible everywhere. Example: public void deposit();
+
+
+
+
+
+
+2. Method Overloading vs Overriding
+Overloading → same method name, different parameters (compile-time). Example: pay(String card)
+and pay(String upi, double amt)
+Overriding → same method name, same parameters in subclass (runtime). Example:
+OnlinePayment overrides pay() of Payment class
+Example: Overloading → different payment methods. Overriding → specific payment logic.
+3. Static vs Instance Variables
+
+
+
+Static variable → belongs to class, shared by all objects. Example: static int totalUsers;
+Instance variable → belongs to object, unique to each object. Example: String userName;
+4. Uses of final keyword
+
+
+
+final variable → makes value constant. Example: final double DISCOUNT = 0.1;
+final method → cannot be overridden. Example: final void checkout()
+final class → cannot be inherited. Example: final class PaymentGateway {}
+Example: In a shopping app, final double TAX_RATE = 0.18; prevents accidental change.
